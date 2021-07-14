@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+    <select id="selectUsers" resultType="com.example.bean.User">
+        SELECT * FROM t_user
+    </select>
+    <select id="selectUser" resultType="com.example.bean.User" >
+        SELECT * FROM t_user WHERE userAcc=#{acc} and userPass=#{pass}
+    </select>
+    <insert id="insertUser" parameterType="com.example.bean.User">
+        INSERT INTO t_user (userID,name,userAcc,userPass,Ident,email,IdentType,guestType,phone)
+        VALUES (#{userID},#{name},#{userAcc},#{userPass},#{Ident},#{email},#{IdentType},#{guestType},#{phone})
+    </insert>
+</mapper>
